@@ -1,13 +1,29 @@
-import config from './config'
-
+const config = require('./config');
 const mongoose = require('mongoose');
 
-mongoose.connect(config.mongo.url,
-    {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    });
+mongoose.Promise = global.Promise;
 
-const client = mongoose.connection;
+const connect = (isTest = false, testUrl = '') => new Promise((resolve, reject) => {
+    let dbUrl;
+    if (isTest && testUrl) dbUrl = testUrl;
+    else dbUrl = 'mongodb+srv://choir:20MxboErhwuwkIJ3lQJ53Fhc2vLsEVSx@choir.zd0yqyw.mongodb.net/Choir?retryWrites=true&w=majority';
+    mongoose.connect(dbUrl,
+        { useNewUrlParser: true, useUnifiedTopology: true },
+        function(err) {
+            if (err) {
+                return reject(err);
+            }
+            console.log('DB Connected')
+        },
+    );
+});
 
-module.exports = client;
+const disconnect = async () => {
+    await mongoose.disconnect();
+};
+
+module.exports = {
+    connect,
+    disconnect,
+};
+

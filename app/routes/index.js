@@ -1,10 +1,5 @@
-const router = require('express').Router();
+const song = require('./song');
 
-const tasksRouter = require('./TaskRouter');
-
-router.use('/tasks', tasksRouter)
-
-
-
-module.exports = router;
-
+module.exports = function(app) {
+    app.use('/api/v1', song);
+};
