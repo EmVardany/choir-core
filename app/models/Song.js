@@ -12,7 +12,12 @@ const songSchema = new mongoose.Schema({
     url_title: {
         type: String,
     },
-
+    partData: {
+        type: Array,
+    },
+    notes: {
+        type: Array,
+    }
 });
 
 const Song = mongoose.model('Song', songSchema);

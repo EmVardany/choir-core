@@ -1,4 +1,4 @@
-const {createSong, getSongByTitle} = require('../services/song')
+const {createSong, getSongByTitle, getAllSongs} = require('../services/song')
 
 const getSong = async (req, res, next) => {
     try {
@@ -9,13 +9,23 @@ const getSong = async (req, res, next) => {
     }
 }
 
-const addNewSong = async (req, res, next) => {
+const getSongsList = async (req, res, next) => {
     try {
-        const song = await createSong({ title: decodeURI(req.query.title), url_title: req.params.url_title})
+        const song = await getAllSongs(req.params.url_title)
         res.send(song)
     } catch (e) {
         next(e)
     }
 }
 
-module.exports = {addNewSong, getSong};
+const addNewSong = async (req, res, next) => {
+    try {
+        // const song = await createSong({ title: decodeURI(req.query.title), url_title: req.params.url_title})
+        const song = await createSong({ title: 'Дякуйте Господу (Псалом 117)', url_title: req.params.url_title})
+        res.send(song)
+    } catch (e) {
+        next(e)
+    }
+}
+
+module.exports = {addNewSong, getSong, getSongsList};
