@@ -8,6 +8,7 @@ const cors = require('cors')
 app.use(express.json());
 app.use(cors())
 
+console.log(123456)
 router(app);
 
 app.listen(port, async () =>{
