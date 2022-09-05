@@ -9,11 +9,11 @@ app.use(express.json());
 app.use(cors())
 
 console.log(123456)
-router(app);
-
-app.listen(port, async () =>{
-    console.log(`Server started on port ${port}`);
-    await db.connect();
-})
+// router(app);
+//
+// app.listen(port, async () =>{
+//     console.log(`Server started on port ${port}`);
+//     await db.connect();
+// })
 
 
