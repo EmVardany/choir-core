@@ -10,18 +10,13 @@ app.use(cors())
 
 router(app);
 
-app.listen(port, async () =>{
+app.listen(port, async () => {
     console.log(`Server started on port ${port}`);
-  try{
-      await db.connect();
-      console.log(
-          ' connect db'
-      )
-  }catch (e){
-      console.log(
-          'dont connect db',e
-      )
-  }
+    try {
+        await db.connect();
+    } catch (e) {
+        console.log(e)
+    }
 })
 
 
