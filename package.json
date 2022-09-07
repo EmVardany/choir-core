@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "npm install && node server.js"
   },
   "engines": {
     "npm": "8.13.2",
@@ -20,6 +20,7 @@
     "mongoose": "^6.5.1",
     "mongoose-bcrypt": "^1.9.0",
     "path": "^0.12.7",
+    "path-to-regexp": "^6.2.1",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
