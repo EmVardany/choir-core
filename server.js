@@ -1,6 +1,6 @@
 const cool = require('cool-ascii-faces');
 const express = require('express');
-const path = require('path');
+
 const app = express();
 const router = require('./app/routes');
 const port = process.env.PORT || 3000;
