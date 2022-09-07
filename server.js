@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const router = require('./app/routes');
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 const db = require('./app/db')
 const cors = require('cors')
 app.use(express.json());
