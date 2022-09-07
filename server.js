@@ -14,9 +14,18 @@ app.get('/', (req, res, next) => {
 console.log(123456)
 router(app);
 
-// app.listen(port, async () =>{
-//     console.log(`Server started on port ${port}`);
-//     await db.connect();
-// })
+app.listen(port, async () =>{
+    console.log(`Server started on port ${port}`);
+  try{
+      await db.connect();
+      console.log(
+          ' connect db'
+      )
+  }catch (e){
+      console.log(
+          'dont connect db',e
+      )
+  }
+})
 
 
