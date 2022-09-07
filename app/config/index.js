@@ -2,7 +2,7 @@ require('dotenv').config();
 
 module.exports = {
     host: {
-        port: process.env.PORT || '3000',
+        port: process.env.PORT || '5000',
         version: process.env.VERSION || '/api/v1'
     },
     mongo: {
