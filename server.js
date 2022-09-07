@@ -7,7 +7,9 @@ const cors = require('cors')
 
 app.use(express.json());
 app.use(cors())
-
+app.get('/', (req, res, next) => {
+    res.end('<h1>HomePage</h1>')
+})
 console.log(123456)
 router(app);
 

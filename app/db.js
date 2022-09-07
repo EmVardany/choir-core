@@ -6,7 +6,7 @@ mongoose.Promise = global.Promise;
 const connect = (isTest = false, testUrl = '') => new Promise((resolve, reject) => {
     let dbUrl;
     if (isTest && testUrl) dbUrl = testUrl;
-    else dbUrl = 'mongodb+srv://choir:20MxboErhwuwkIJ3lQJ53Fhc2vLsEVSx@choir.zd0yqyw.mongodb.net/Choir?retryWrites=true&w=majority';
+    else dbUrl = process.env.MONGO_HOST;
     mongoose.connect(dbUrl,
         { useNewUrlParser: true, useUnifiedTopology: true },
         function(err) {
